@@ -10,10 +10,18 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
-    blog_image = CloudinaryField('image', default='placeholder')
+    blog_image = CloudinaryField("image", default="placeholder")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
+    likes = models.ManyToManyField(User, related_name="blogpost_like", blank=True)
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
     
