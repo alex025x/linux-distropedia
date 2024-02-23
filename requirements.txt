@@ -8,3 +8,4 @@ gunicorn==21.2.0
 psycopg2==2.9.9
 sqlparse==0.4.4
 urllib3==1.26.18
+django-summernote~=0.8.20.0
