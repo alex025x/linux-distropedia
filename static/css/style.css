@@ -1,0 +1,200 @@
+/* Custom CSS for Distroblog */
+
+body {
+    background-color: #F9FAFC;
+}
+
+.brand, .navbar-brand {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white; /* Change text color to white */
+}
+
+.nav-link {
+    color: white !important; /* Change text color of nav links to white */
+}
+
+.red-o {
+    color: #E84610;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #1C5424; /* Dark green */
+}
+
+.main-bg {
+    background-color: #F9FAFC;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #1C5424; /* Dark green */
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.author {
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+    background-color: #1C5424; /* Dark green */
+    padding: 2px 6px; /* Adding padding */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #1C5424; /* Dark green */
+    color: white;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #1C5424; /* Dark green */
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #4A4A4F; /* Text color */
+    transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+.post-link:hover,
+.page-link {
+    color: #05f825; /* Dark green on hover */
+}
+
+.post-title {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: #ffffff; /* Change color of post subtitle to white */
+}
+
+.btn-signup,
+.btn-edit {
+    background-color: #188181;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23BBBB;
+}
+
+.link {
+    color: #23BBBB;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #1C5424; /* Dark green on hover */
+}
+
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-delete {
+    color: #fff;
+    background: #E84610;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
+.faded {
+    color: #ffffff;
+}
+
+.approval {
+    color: rgb(222, 146, 168);
+}
+
+.footer {
+    background-color: #1C5424; /* Dark green */
+    color: #fff; /* White text */
+}
+
+.footer i {
+    color: #fff; /* White icons */
+}
+
+.footer i:hover {
+    color: #4A4A4F; /* Text color on hover */
+}
+
+.navbar-nav .nav-link {
+    color: #4A4A4F; /* Default color for navbar links */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Smooth transition effect */
+    border-bottom: 2px solid transparent; /* Initially transparent underline */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #69db0b; /* Lighter green color on hover */
+    border-bottom-color: #11e90a; /* Lighter green underline on hover */
+}
+
+.navbar {
+    background-color: #1C5424; /* Dark green */
+    color: #4A4A4F; /* Text color */
+    margin-bottom: 3rem;
+}
