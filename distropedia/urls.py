@@ -4,8 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("", include("distroblog.urls"), name="distroblog-urls"),
+    path("admin/", admin.site.urls),
+    path("", include("distroblog.urls")),  # Move this line after the admin pattern
     path("accounts/", include("allauth.urls")),
     path('summernote/', include('django_summernote.urls')),
-    path("admin/", admin.site.urls),
-]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

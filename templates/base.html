@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -38,7 +38,7 @@
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fas fa-bars text-white"></i> <!-- Burger icon -->
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarText">
                 <ul class="navbar-nav mb-2 mb-lg-0">
@@ -64,7 +64,29 @@
         </div>
     </nav>
 
+    <script>
+        // Function to remove the login/logout messages after 3 seconds
+        setTimeout(function() {
+            var loggedInMessage = document.getElementById('loggedInMessage');
+            var notLoggedInMessage = document.getElementById('notLoggedInMessage');
+            {% if user.is_authenticated %}
+            if (loggedInMessage) {
+                loggedInMessage.style.display = 'none';
+            }
+            {% else %}
+            if (notLoggedInMessage) {
+                notLoggedInMessage.style.display = 'none';
+            }
+            {% endif %}
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
+
     <main class="flex-shrink-0 main-bg">
+        {% if user.is_authenticated %}
+        <p class="text-end m-3" id="loggedInMessage">You are logged in as {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3" id="notLoggedInMessage">You are not logged in</p>
+        {% endif %}
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
