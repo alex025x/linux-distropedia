@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-3 offset-md-3">
+            <div class="card border rounded">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">{% trans "Sign In" %}</h3>
+
+                    <!-- Welcome message -->
+                    <p class="text-muted text-center">Welcome to Distroblog. Please log in or <a class="link" href="{{ signup_url }}">create an account</a> here to have access to all our services.</p>
+
+                    <form class="login" method="POST" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="inputUsername" name="login" placeholder="Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required>
+                        </div>
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <button class="btn btn-green btn-block" type="submit">{% trans "Sign In" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

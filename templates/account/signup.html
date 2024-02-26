@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign Up" %}{% endblock head_title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-3 offset-md-3">
+            <div class="card border rounded">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">{% trans "Sign Up" %}</h3>
+
+                    <!-- Already have an account message -->
+                    <p class="text-muted text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+                    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="inputPassword" name="password1" placeholder="Password" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="inputPasswordConfirm" name="password2" placeholder="Confirm Password" required>
+                        </div>
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <button class="btn btn-green btn-block" type="submit">{% trans "Sign Up" %} &raquo;</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -8,11 +8,11 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: white; /* Change text color to white */
+    color: white;
 }
 
 .nav-link {
-    color: white !important; /* Change text color of nav links to white */
+    color: white !important;
 }
 
 .red-o {
@@ -28,7 +28,7 @@ body {
 }
 
 .dark-bg {
-    background-color: #1C5424; /* Dark green */
+    background-color: #1C5424;
 }
 
 .main-bg {
@@ -49,7 +49,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #1C5424; /* Dark green */
+    background-color: #1C5424;
 }
 
 .scale {
@@ -61,9 +61,9 @@ body {
     color: white;
     margin: 4px;
     text-transform: uppercase;
-    background-color: #1C5424; /* Dark green */
-    padding: 2px 6px; /* Adding padding */
-    border-radius: 4px; /* Rounded corners */
+    background-color: #1C5424;
+    padding: 2px 6px;
+    border-radius: 4px;
 }
 
 .masthead {
@@ -76,7 +76,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #1C5424; /* Dark green */
+    background-color: #1C5424;
     color: white;
     position: relative;
 }
@@ -93,7 +93,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #1C5424; /* Dark green */
+    background: #1C5424;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -102,7 +102,7 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #4A4A4F; /* Text color */
+    color: #4A4A4F;
     transition: color 0.3s ease; /* Smooth transition effect */
 }
 
@@ -118,7 +118,7 @@ body {
 
 .post-subtitle {
     margin-left: 5%;
-    color: #ffffff; /* Change color of post subtitle to white */
+    color: #ffffff;
 }
 
 .btn-signup,
@@ -127,10 +127,17 @@ body {
     color: #fff;
 }
 
+.btn-green {
+    background-color: #1C5424;
+    color: #fff;
+}
+
 .btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+.btn-signup:active,
+.btn-green:hover,
+.btn-green:active {
+    background-color: #3ed111;
+    color: #ffffff;
 }
 
 .link {
@@ -140,7 +147,7 @@ body {
 
 .link:hover,
 .link:active {
-    color: #1C5424; /* Dark green on hover */
+    color: #1C5424;
 }
 
 .btn-like {
@@ -170,31 +177,44 @@ body {
 }
 
 .footer {
-    background-color: #1C5424; /* Dark green */
-    color: #fff; /* White text */
+    background-color: #1C5424;
+    color: #fff;
 }
 
 .footer i {
-    color: #fff; /* White icons */
+    color: #fff;
 }
 
 .footer i:hover {
-    color: #4A4A4F; /* Text color on hover */
+    color: #4A4A4F;
 }
 
 .navbar-nav .nav-link {
     color: #4A4A4F; /* Default color for navbar links */
-    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Smooth transition effect */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
     border-bottom: 2px solid transparent; /* Initially transparent underline */
 }
 
 .navbar-nav .nav-link:hover {
-    color: #69db0b; /* Lighter green color on hover */
-    border-bottom-color: #11e90a; /* Lighter green underline on hover */
+    color: #69db0b;
+    border-bottom-color: #11e90a;
 }
 
 .navbar {
-    background-color: #1C5424; /* Dark green */
-    color: #4A4A4F; /* Text color */
+    background-color: #1C5424;
+    color: #4A4A4F;
     margin-bottom: 3rem;
+}
+
+.btn-green {
+    background-color: #1C5424;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-green:hover,
+.btn-green:active {
+    background-color: #05f825;
+    color: #fff;
 }
