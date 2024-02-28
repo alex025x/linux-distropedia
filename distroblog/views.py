@@ -9,4 +9,13 @@ class PostList(generic.ListView):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post.objects.filter(status=1, slug=slug))
-    return render(request, "distroblog/post_detail.html", {"post": post})
+    comments = post.comments.all().order_by("-created_at")
+    comment_count = post.comments.filter(approved=True).count()
+    return render(
+        request, "distroblog/post_detail.html", 
+        {
+            "post": post,
+            "comments": comments, 
+            "comment_count": comment_count,
+            },
+    )
