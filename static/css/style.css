@@ -123,7 +123,7 @@ body {
 
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
+    background-color: #1C5424;
     color: #fff;
 }
 
@@ -169,7 +169,7 @@ body {
 }
 
 .faded {
-    color: #ffffff;
+    color: #cc1313;
 }
 
 .approval {
@@ -223,6 +223,25 @@ body {
     color: #2e2bdacb;
     
 }
+
+.alert {
+    color: white; /* Change text color to white */
+    background-color: #125e1d; /* Change background color to green */
+    border-color: #1C5424; /* Change border color to green */
+}
+
+.main-content .alert {
+    background-color: #add8e6; /* Light blue background color */
+    color: #000; /* Black text color */
+}
+
+.approval {
+    color:#d31121
+}
+
+
+
+
 
 
 
