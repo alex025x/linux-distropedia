@@ -1,9 +1,11 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, CreateBlogForm
+from django.contrib.auth.decorators import login_required
+
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
@@ -73,4 +75,17 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+@login_required
+def create_blog(request):
+    if request.method == 'POST':
+        form = CreateBlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author = request.user
+            new_post.save()
+            return redirect('home')
+    else:
+        form = CreateBlogForm()
+    return render(request, 'distroblog/create_blog.html', {'form': form})
 

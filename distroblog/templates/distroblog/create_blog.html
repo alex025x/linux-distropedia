@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!-- If user is authenticated show form, else show login/register page link -->
+{% if user.is_authenticated %}
+<div class="container col-8 mb-3 p-5 rounded shadow">
+    <h5 class="text-center">Let's add your distro!</h5>
+    <hr class="red">
+
+    <p>Posting as: {{ user.username }}</p>
+    <!-- Mulitipart/form-data to get form to work -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <br>
+        <input type="submit" class="btn btn-outlined-success button">
+    </form>
+</div>
+{% else %}
+<div class="container col md-7 rounded shadow p-5">
+    <p></p>Please login or create an account to create a post.></p>
+    <p>If you already have an account, Please
+        <span>
+            <a class="btn btn-outlined-success button" href="{% url 'account_login' %}"></a>
+        </span>
+    </p>
+    <p>If you do not have an account, please
+        <span>
+            <a class="btn btn-outlined-success button" href="{% url 'account_signup' %}"></a>
+        </span>
+    </p>
+</div>
+{% endif %}
+{% endblock content %}
