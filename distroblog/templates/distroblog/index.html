@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block content %}
 <div class="container-fluid">
     <div class="row">
@@ -12,10 +12,11 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.blog_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                  alt="placeholder image">
+                                <img class="card-img-top" 
+                                    src="https://kinsta.com/de/wp-content/uploads/sites/5/2021/10/linux-befehle-1024x512.jpeg"
+                                    alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}"
+                                <img class="card-img-top" src=" {{ post.blog_image.url }}"
                                   alt="{{ post.title }}">
                                 {% endif %}
                                 <div class="image-flash">
