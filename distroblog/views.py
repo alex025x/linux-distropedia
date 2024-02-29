@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, CreateBlogForm
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
@@ -83,9 +84,19 @@ def create_blog(request):
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.author = request.user
-            new_post.save()
-            return redirect('home')
+            
+            # Generate the slug
+            if not new_post.slug:
+                title = form.cleaned_data['title']  # Retrieve title from form
+                slug = form.generate_unique_slug(title)  # Generate unique slug
+                new_post.slug = slug
+
+            try:
+                new_post.save()
+                messages.success(request, 'Blog post created successfully.')
+                return redirect('home')
+            except Exception as e:
+                messages.error(request, f'An error occurred while saving the blog post: {str(e)}')
     else:
         form = CreateBlogForm()
     return render(request, 'distroblog/create_blog.html', {'form': form})
-
