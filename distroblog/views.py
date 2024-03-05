@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
-from .models import Post, Comment
+from .models import Post, Comment, LikePost
 from .forms import CommentForm, CreateBlogForm
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
+from django.http import HttpResponse
+
 
 
 class PostList(generic.ListView):
@@ -100,3 +101,23 @@ def create_blog(request):
     else:
         form = CreateBlogForm()
     return render(request, 'distroblog/create_blog.html', {'form': form})
+
+@login_required(login_url='signin')
+def like_post(request):
+    if request.method == 'GET':
+        post_id = request.GET.get('post_id')
+        post = get_object_or_404(Post, id=post_id)
+        username = request.user.username
+
+        like_filter = LikePost.objects.filter(post_id=post_id, username=username).first()
+
+        if like_filter is None:
+            new_like = LikePost.objects.create(post_id=post_id, username=username)
+            post.no_of_likes += 1
+            post.save()
+        else:
+            like_filter.delete()
+            post.no_of_likes -= 1
+            post.save()
+
+    return redirect(request.META.get('HTTP_REFERER', 'home'))

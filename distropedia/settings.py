@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['linuxdistropedia-d0c59f414e1b.herokuapp.com', 'localhost', '8000-alex025x-linuxdistroped-nygvn597bdh.ws-eu108.gitpod.io',  ]
+ALLOWED_HOSTS = ['linuxdistropedia-d0c59f414e1b.herokuapp.com', 'localhost', '8000-alex025x-linuxdistroped-tans7wki23g.ws-eu108.gitpod.io',  ]
 
 
 # Application definition
@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django.contrib.sites',
     'allauth',
     'allauth.account',

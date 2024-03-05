@@ -35,19 +35,36 @@
     </div>
 </div>
 
-<!-- Displaying count of comments -->
+<!-- Displaying count of comments and likes -->
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <strong class="text-secondary">
-                <i class="far fa-comments"></i> {{ comment_count }}
-            </strong>
-        </div>
-        <div class="col-12">
-            <hr>
-        </div>
-    </div>
+  <div class="row">
+      <div class="col-6">
+          <strong class="text-secondary">
+              <i class="far fa-comments"></i> {{ comment_count }}
+          </strong>
+      </div>
+      <div class="col-6">
+          <strong class="text-secondary">
+              <a href="{% url 'like_post' %}?post_id={{ post.id }}" class="flex items-center space-x-2">
+                  <i class="far fa-thumbs-up"></i> {{ like_count }}
+              </a>
+          </strong>
+          {% if post.no_of_likes == 0 %}
+          <p>No likes</p>
+          {% elif post.no_of_likes == 1 %}
+          <p>Liked by {{post.no_of_likes}} person</p>
+          {% else %}
+          <p>Liked by {{post.no_of_likes}} people</p>
+          {% endif %}
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+          <hr>
+      </div>
+  </div>
 </div>
+
 
 <!-- Displaying Comments -->
 <div class="container">
