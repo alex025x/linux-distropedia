@@ -88,7 +88,7 @@ I used [balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
 ## Agile Development
 
-    -For Agile Development I have used Github [Projects](https://github.com/users/alex025x/projects/3)
+For Agile Development I have used Github [Projects](https://github.com/users/alex025x/projects/3)
 
 ## Testing
 
