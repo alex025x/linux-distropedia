@@ -9,7 +9,6 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
 
-
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "distroblog/index.html"
