@@ -45,9 +45,15 @@
       </div>
       <div class="col-6">
           <strong class="text-secondary">
-              <a href="{% url 'like_post' %}?post_id={{ post.id }}" class="flex items-center space-x-2">
-                  <i class="far fa-thumbs-up"></i> {{ like_count }}
-              </a>
+              {% if user.is_authenticated %}
+                  <a href="{% url 'like_post' %}?post_id={{ post.id }}" class="flex items-center space-x-2">
+                      <i class="far fa-thumbs-up"></i> {{ like_count }}
+                  </a>
+              {% else %}
+                  <a href="{% url 'account_signup' %}" class="flex items-center space-x-2">
+                      <i class="far fa-thumbs-up"></i> {{ like_count }}
+                  </a>
+              {% endif %}
           </strong>
           {% if post.no_of_likes == 0 %}
           <p>No likes</p>
@@ -122,7 +128,7 @@
               class="btn btn-signup btn-lg">Submit</button>
           </form>
           {% else %}
-          <p>Log in to leave a comment</p>
+          <p><a href="{% url 'account_login' %}">Log in</a> to leave a comment</p>
           {% endif %}
         </div>
       </div>

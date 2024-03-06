@@ -6,6 +6,7 @@ from .forms import CommentForm, CreateBlogForm
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 
 

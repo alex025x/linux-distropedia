@@ -15,7 +15,7 @@ for (let button of editButtons) {
     let commentContent = document.getElementById(`comment${commentId}`).innerText;
     commentText.value = commentContent;
     submitButton.innerText = "Update";
-    commentForm.setAttribute("action", `edit_comment/${commentId}`);
+    commentForm.setAttribute = `/blogs/%{slug}/edit_comment/${commentId}/`;
   });
 }
 
@@ -23,7 +23,9 @@ for (let button of editButtons) {
 for (let button of deleteButtons) {
   button.addEventListener("click", (e) => {
     let commentId = e.target.getAttribute("comment_id");
-    deleteConfirm.href = `delete_comment/${commentId}`;
+    let slug = window.location.href.split('/')
+    slug = slug[slug.length - 2]
+    deleteConfirm.href = `/blogs/%{slug}/delete_comment/${commentId}/`;
     deleteModal.show();
   });
 }
